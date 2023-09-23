@@ -1,0 +1,12 @@
+provider "aws"{
+    region = "ap-south-1"
+    access_key="AKIAWSFYPBVFODLRHWG5"
+    secret_key = "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"
+}
+resource "aws_instance" "ec2_instance" {
+    ami = "ami-08abb3eeacc61972d"
+    instance_type ="t2.micro"
+}
+output "public_ip" {
+    value = aws_instance.ec2_instance.public_ip
+}
